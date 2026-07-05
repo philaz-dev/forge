@@ -5,6 +5,7 @@ const nextConfig = {
     "@forge/ui",
     "@forge/kernel",
     "@forge/brand",
+    "@forge/opportunity",
     "@forge/persistence",
   ],
 };
