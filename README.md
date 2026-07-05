@@ -30,7 +30,7 @@ packages/
   kernel/       Framework-agnostic domain primitives
   knowledge/    Knowledge domain — the business entities Forge knows
   opportunity/  Opportunity scanner domain (mocked analysis)
-  brand/        Brand domain (schema and types)
+  brand/        Brand domain (in-memory BrandService, slug, status)
   ui/           Shared UI components (shadcn/ui based)
   persistence/  Drizzle ORM + Supabase (connection added later)
   contracts/    Shared events, commands, and cross-domain interfaces

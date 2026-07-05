@@ -1,15 +1,14 @@
-import { z } from "zod";
-
 /**
- * Brand domain package.
+ * @forge/brand — the Brand domain.
  *
- * Brand creation is intentionally NOT implemented in Sprint 001. This schema
- * defines the shape of a Brand only, so downstream packages can share a single
- * source of truth once creation is built in a later sprint.
+ * The public surface is the BrandService (the five brand use-cases over an
+ * in-memory store) plus the types callers need to drive it.
  */
-export const brandSchema = z.object({
-  id: z.string(),
-  name: z.string().min(1),
-});
 
-export type Brand = z.infer<typeof brandSchema>;
+export { BrandService } from "./application/brand-service";
+export type {
+  Brand,
+  CreateBrandInput,
+  UpdateBrandChanges,
+} from "./domain/brand";
+export type { BrandStatus } from "./domain/brand-status";
