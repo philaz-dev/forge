@@ -28,6 +28,7 @@ apps/
 
 packages/
   kernel/       Framework-agnostic domain primitives
+  knowledge/    Knowledge domain — the business entities Forge knows
   brand/        Brand domain (schema and types)
   ui/           Shared UI components (shadcn/ui based)
   persistence/  Drizzle ORM + Supabase (connection added later)

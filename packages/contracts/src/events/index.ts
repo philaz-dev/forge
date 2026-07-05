@@ -1,29 +1,26 @@
 /**
  * Domain event contracts shared across Forge domains.
  *
- * These are placeholder examples for the foundation. Concrete events are added
- * as each domain is implemented.
+ * Each domain contributes its event definitions here so producers and
+ * consumers share a single source of truth. The `DomainEvent` union is the
+ * registry of every known event.
  */
 
-/** Fields carried by every domain event envelope. */
-export interface DomainEventBase {
-  /** ISO-8601 timestamp of when the event occurred. */
-  occurredAt: string;
-}
+import type { BrandCreated, BrandUpdated } from "./brand";
+import type {
+  KnowledgeEntityArchived,
+  KnowledgeEntityCreated,
+  KnowledgeEntityUpdated,
+} from "./knowledge";
 
-/** Emitted when a new brand has been created. */
-export interface BrandCreated extends DomainEventBase {
-  type: "brand.created";
-  brandId: string;
-  name: string;
-}
-
-/** Emitted when an existing brand has been updated. */
-export interface BrandUpdated extends DomainEventBase {
-  type: "brand.updated";
-  brandId: string;
-  name: string;
-}
+export * from "./base";
+export * from "./brand";
+export * from "./knowledge";
 
 /** Union of all known domain events. */
-export type DomainEvent = BrandCreated | BrandUpdated;
+export type DomainEvent =
+  | BrandCreated
+  | BrandUpdated
+  | KnowledgeEntityCreated
+  | KnowledgeEntityUpdated
+  | KnowledgeEntityArchived;
