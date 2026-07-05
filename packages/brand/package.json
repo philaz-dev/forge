@@ -10,13 +10,15 @@
   },
   "scripts": {
     "lint": "eslint src --ext .ts,.tsx --max-warnings=0",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
   },
   "dependencies": {
-    "zod": "^3.24.1"
+    "@forge/kernel": "workspace:*"
   },
   "devDependencies": {
     "eslint": "^8.57.1",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "vitest": "^2.1.8"
   }
 }
