@@ -41,15 +41,12 @@ importers:
       '@forge/brand':
         specifier: workspace:*
         version: link:../../packages/brand
-      '@forge/core':
+      '@forge/kernel':
         specifier: workspace:*
-        version: link:../../packages/core
-      '@forge/database':
+        version: link:../../packages/kernel
+      '@forge/persistence':
         specifier: workspace:*
-        version: link:../../packages/database
-      '@forge/types':
-        specifier: workspace:*
-        version: link:../../packages/types
+        version: link:../../packages/persistence
       '@forge/ui':
         specifier: workspace:*
         version: link:../../packages/ui
@@ -120,9 +117,6 @@ importers:
 
   packages/brand:
     dependencies:
-      '@forge/types':
-        specifier: workspace:*
-        version: link:../types
       zod:
         specifier: ^3.24.1
         version: 3.25.76
@@ -134,11 +128,7 @@ importers:
         specifier: ^5.7.3
         version: 5.9.3
 
-  packages/core:
-    dependencies:
-      '@forge/types':
-        specifier: workspace:*
-        version: link:../types
+  packages/config:
     devDependencies:
       eslint:
         specifier: ^8.57.1
@@ -147,7 +137,25 @@ importers:
         specifier: ^5.7.3
         version: 5.9.3
 
-  packages/database:
+  packages/contracts:
+    devDependencies:
+      eslint:
+        specifier: ^8.57.1
+        version: 8.57.1
+      typescript:
+        specifier: ^5.7.3
+        version: 5.9.3
+
+  packages/kernel:
+    devDependencies:
+      eslint:
+        specifier: ^8.57.1
+        version: 8.57.1
+      typescript:
+        specifier: ^5.7.3
+        version: 5.9.3
+
+  packages/persistence:
     dependencies:
       '@supabase/supabase-js':
         specifier: ^2.47.10
@@ -159,15 +167,6 @@ importers:
       drizzle-kit:
         specifier: ^0.30.1
         version: 0.30.6
-      eslint:
-        specifier: ^8.57.1
-        version: 8.57.1
-      typescript:
-        specifier: ^5.7.3
-        version: 5.9.3
-
-  packages/types:
-    devDependencies:
       eslint:
         specifier: ^8.57.1
         version: 8.57.1
@@ -5074,7 +5073,7 @@ snapshots:
       eslint: 8.57.1
       eslint-import-resolver-node: 0.3.10
       eslint-import-resolver-typescript: 3.10.1(eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.62.1(eslint@8.57.1)(typescript@5.9.3))(eslint@8.57.1))(eslint@8.57.1)
-      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.62.1(eslint@8.57.1)(typescript@5.9.3))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1)
+      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.62.1(eslint@8.57.1)(typescript@5.9.3))(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.62.1(eslint@8.57.1)(typescript@5.9.3))(eslint@8.57.1))(eslint@8.57.1))(eslint@8.57.1)
       eslint-plugin-jsx-a11y: 6.10.2(eslint@8.57.1)
       eslint-plugin-react: 7.37.5(eslint@8.57.1)
       eslint-plugin-react-hooks: 5.2.0(eslint@8.57.1)
@@ -5108,7 +5107,7 @@ snapshots:
       tinyglobby: 0.2.17
       unrs-resolver: 1.12.2
     optionalDependencies:
-      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.62.1(eslint@8.57.1)(typescript@5.9.3))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1)
+      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.62.1(eslint@8.57.1)(typescript@5.9.3))(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.62.1(eslint@8.57.1)(typescript@5.9.3))(eslint@8.57.1))(eslint@8.57.1))(eslint@8.57.1)
     transitivePeerDependencies:
       - supports-color
 
@@ -5123,7 +5122,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.62.1(eslint@8.57.1)(typescript@5.9.3))(eslint-import-resolver-typescript@3.10.1)(eslint@8.57.1):
+  eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.62.1(eslint@8.57.1)(typescript@5.9.3))(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.62.1(eslint@8.57.1)(typescript@5.9.3))(eslint@8.57.1))(eslint@8.57.1))(eslint@8.57.1):
     dependencies:
       '@rtsao/scc': 1.1.0
       array-includes: 3.1.9
