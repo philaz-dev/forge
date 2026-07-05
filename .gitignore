@@ -9,6 +9,9 @@ out
 # turbo
 .turbo
 
+# vercel
+.vercel
+
 # typescript
 *.tsbuildinfo
 
