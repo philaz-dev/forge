@@ -44,6 +44,9 @@ importers:
       '@forge/kernel':
         specifier: workspace:*
         version: link:../../packages/kernel
+      '@forge/opportunity':
+        specifier: workspace:*
+        version: link:../../packages/opportunity
       '@forge/persistence':
         specifier: workspace:*
         version: link:../../packages/persistence
@@ -160,6 +163,22 @@ importers:
       '@forge/contracts':
         specifier: workspace:*
         version: link:../contracts
+      '@forge/kernel':
+        specifier: workspace:*
+        version: link:../kernel
+    devDependencies:
+      eslint:
+        specifier: ^8.57.1
+        version: 8.57.1
+      typescript:
+        specifier: ^5.7.3
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.9(@types/node@22.20.0)(jsdom@25.0.1)
+
+  packages/opportunity:
+    dependencies:
       '@forge/kernel':
         specifier: workspace:*
         version: link:../kernel

@@ -13,6 +13,7 @@
   "dependencies": {
     "@forge/brand": "workspace:*",
     "@forge/kernel": "workspace:*",
+    "@forge/opportunity": "workspace:*",
     "@forge/persistence": "workspace:*",
     "@forge/ui": "workspace:*",
     "@hookform/resolvers": "^3.9.1",
