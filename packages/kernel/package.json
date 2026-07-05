@@ -1,5 +1,5 @@
 {
-  "name": "@forge/brand",
+  "name": "@forge/kernel",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -11,9 +11,6 @@
   "scripts": {
     "lint": "eslint src --ext .ts,.tsx --max-warnings=0",
     "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "zod": "^3.24.1"
   },
   "devDependencies": {
     "eslint": "^8.57.1",

@@ -3,10 +3,9 @@ const nextConfig = {
   reactStrictMode: true,
   transpilePackages: [
     "@forge/ui",
-    "@forge/core",
+    "@forge/kernel",
     "@forge/brand",
-    "@forge/database",
-    "@forge/types",
+    "@forge/persistence",
   ],
 };
 

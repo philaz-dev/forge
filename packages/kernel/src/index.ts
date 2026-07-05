@@ -1,5 +1,5 @@
 /**
- * Core domain logic for Forge.
+ * Kernel — core, framework-agnostic domain primitives for Forge.
  *
  * Business logic is added in later sprints. This package is the home for
  * framework-agnostic domain rules shared by the web app and other packages.

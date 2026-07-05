@@ -27,13 +27,14 @@ apps/
   web/          Next.js App Router application
 
 packages/
-  core/         Framework-agnostic domain logic
+  kernel/       Framework-agnostic domain primitives
   brand/        Brand domain (schema and types)
   ui/           Shared UI components (shadcn/ui based)
-  database/     Drizzle ORM + Supabase (connection added later)
-  types/        Shared TypeScript types
+  persistence/  Drizzle ORM + Supabase (connection added later)
+  contracts/    Shared events, commands, and cross-domain interfaces
+  config/       Shared configuration (env validation, feature flags later)
 
-docs/           Project and sprint documentation
+docs/           Project documentation, including Architecture Decision Records (docs/adr)
 ```
 
 ## Getting started
