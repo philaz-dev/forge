@@ -1,0 +1,9 @@
+/**
+ * Database package (Drizzle ORM + Supabase).
+ *
+ * The database connection is intentionally NOT implemented in Sprint 001.
+ * Schema definitions and the client are added in a later sprint.
+ */
+
+/** Package identifier, exported so the module has a stable public surface. */
+export const DATABASE_PACKAGE = "@forge/database" as const;

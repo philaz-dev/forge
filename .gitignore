@@ -1,0 +1,32 @@
+# dependencies
+node_modules
+
+# build outputs
+.next
+dist
+out
+
+# turbo
+.turbo
+
+# typescript
+*.tsbuildinfo
+
+# testing
+coverage
+
+# husky (generated)
+.husky/_
+
+# env
+.env
+.env.*
+!.env.example
+
+# logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# misc
+.DS_Store
