@@ -34,6 +34,18 @@ import { useDemo } from "@/store/demo-store";
 import { RecActionBar } from "./rec-actions";
 import { ReturnRateChart } from "./charts";
 
+/** Aplats pastel de la charte, un par carte. */
+const KPI_TONES = [
+  "bg-mint",
+  "bg-sky/70",
+  "bg-butter",
+  "bg-lilac",
+  "bg-blush/70",
+  "bg-sand/80",
+  "bg-mint",
+  "bg-sky/70",
+];
+
 const KPIS = [
   {
     label: "Animaux actifs",
@@ -226,10 +238,10 @@ function TodayList() {
 function PotentialCard() {
   const max = Math.max(...OPPORTUNITIES.map((o) => o.potential));
   return (
-    <Card className="relative overflow-hidden lg:col-span-2">
+    <Card className="relative overflow-hidden rounded-[32px] border-transparent bg-butter lg:col-span-2">
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full bg-sage-100/80 blur-3xl"
+        className="pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full bg-white/60 blur-3xl"
       />
       <div className="relative p-6 sm:p-7">
         <div className="flex flex-wrap items-center gap-2">
@@ -279,7 +291,7 @@ function PotentialCard() {
 
 function ReturnCard() {
   return (
-    <Card className="flex flex-col">
+    <Card className="flex flex-col rounded-[32px] border-transparent bg-lilac">
       <CardHeader
         title="Taux de retour en clinique"
         subtitle="Animaux vus dans les 12 derniers mois"
@@ -304,7 +316,7 @@ function RequestsCard() {
     <Card>
       <CardHeader
         title="Demandes des propriétaires"
-        subtitle="Reçues depuis l’application Vita"
+        subtitle="Reçues depuis l’application SuperVet"
         action={
           <Badge tone="sage">
             {state.notifications.filter((n) => !n.read).length} nouvelles
@@ -348,7 +360,7 @@ export function Dashboard() {
             {formatWeekday(TODAY)}
           </p>
           <h1 className="mt-1 text-[34px] font-semibold leading-tight tracking-tight sm:text-[40px]">
-            Bonjour Dr Martin
+            Bonjour Dr Vetter
           </h1>
           <p className="mt-1 text-[15px] text-ink-muted">
             <span className="font-medium text-ink-soft">
@@ -376,22 +388,13 @@ export function Dashboard() {
             key={k.label}
             href={k.href}
             className={cn(
-              "group animate-fade-up rounded-2xl border bg-white p-4 shadow-soft transition duration-200 hover:-translate-y-0.5 hover:shadow-lift sm:p-5",
-              "accent" in k && k.accent
-                ? "border-sage-200 bg-sage-50/60"
-                : "border-line",
+              "group animate-fade-up rounded-[26px] p-4 transition duration-200 hover:-translate-y-0.5 hover:shadow-lift sm:p-5",
+              KPI_TONES[i % KPI_TONES.length],
             )}
             style={{ animationDelay: `${i * 40}ms` }}
           >
             <div className="flex items-center justify-between">
-              <span
-                className={cn(
-                  "grid h-9 w-9 place-items-center rounded-xl",
-                  "accent" in k && k.accent
-                    ? "bg-sage-700 text-white"
-                    : "bg-sage-50 text-sage-700",
-                )}
-              >
+              <span className="grid h-10 w-10 place-items-center rounded-full bg-white/80 text-ink-soft">
                 <k.icon size={17} />
               </span>
               <ArrowUpRight
@@ -424,7 +427,7 @@ export function Dashboard() {
                   Un moteur de règles, pas un diagnostic
                 </p>
                 <p className="mt-1 text-[13px] leading-relaxed text-ink-muted">
-                  Vita détecte des échéances et des écarts à partir de vos
+                  SuperVet détecte des échéances et des écarts à partir de vos
                   données, puis vous les soumet. La décision médicale reste
                   toujours la vôtre.
                 </p>

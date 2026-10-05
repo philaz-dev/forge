@@ -18,6 +18,7 @@ import type {
   Vaccination,
   WeightPoint,
 } from "@/domain/types";
+import { PET_PHOTOS } from "./photos";
 import { ANIMAL_SEEDS, CLINIC, OWNER_SEEDS, type AnimalSeed } from "./seed";
 
 /* ---------------------------- PRNG déterministe ---------------------------- */
@@ -295,28 +296,28 @@ export function buildAnimals(owners: Owner[]): Animal[] {
         "controle",
         "Contrôle annuel",
         "Examen général complet. Poids stable.",
-        "Dr Martin",
+        "Dr Vetter",
       );
       add(
         "2023-06-20",
         "consultation",
         "Consultation — boiterie légère",
         "Examen locomoteur, repos conseillé 10 jours.",
-        "Dr Lefebvre",
+        "Dr Vetter",
       );
       add(
         "2023-06-20",
         "prescription",
         "Ordonnance — anti-inflammatoire",
         "Traitement de 5 jours, observance confirmée au rappel.",
-        "Dr Lefebvre",
+        "Dr Vetter",
       );
       add(
         "2026-03-18",
         "consultation",
         "Consultation de suivi",
         "Pesée et examen général. Bilan senior à programmer.",
-        "Dr Martin",
+        "Dr Vetter",
       );
     } else {
       let d = lastVisit;
@@ -352,7 +353,7 @@ export function buildAnimals(owners: Owner[]): Animal[] {
         "analyse",
         "Bilan sanguin",
         "Prélèvement et analyses. Résultats commentés au propriétaire.",
-        "Dr Martin",
+        "Dr Vetter",
       );
     }
     if (lastDental) {
@@ -369,14 +370,14 @@ export function buildAnimals(owners: Owner[]): Animal[] {
         "intervention",
         seed.postOp.label,
         "Intervention sous anesthésie, hospitalisation de jour.",
-        "Dr Martin",
+        "Dr Vetter",
       );
       add(
         seed.postOp.date,
         "prescription",
         "Ordonnance post-opératoire",
         "Antalgique et protocole de soins à domicile.",
-        "Dr Martin",
+        "Dr Vetter",
       );
     }
 
@@ -483,6 +484,7 @@ export function buildAnimals(owners: Owner[]): Animal[] {
       birthDate: birth,
       ownerId: owner.id,
       coat: seed.coat,
+      photoUrl: PET_PHOTOS[`a-${seed.slug}`],
       size,
       microchip:
         `250 26${String(Math.floor(rng() * 1e10)).padStart(10, "0")}`.slice(

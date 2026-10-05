@@ -44,6 +44,15 @@ const BAT_EARS = new Set(["Bouledogue français"]);
 
 const INK = "#2B2522";
 
+/** Paires [fond, forme organique] — pastels de la charte. */
+const TONES = [
+  ["#EAF2DD", "#BEDDF1"],
+  ["#FBF4D5", "#F7D0D7"],
+  ["#ECEBF9", "#DDE9C9"],
+  ["#EAF2DD", "#E4E3F6"],
+  ["#EEF6FB", "#FBF2CB"],
+] as const;
+
 type Look = Pick<Animal, "species" | "coat" | "breed">;
 
 function Dog({ look, p }: { look: Look; p: Palette }) {
@@ -230,6 +239,9 @@ export function PetAvatar({
 }) {
   const uid = useId().replace(/:/g, "");
   const p = PALETTE[animal.coat];
+  const tone = TONES[
+    [...animal.name].reduce((h, c) => h + c.charCodeAt(0), 0) % TONES.length
+  ] as [string, string];
 
   if (animal.photoUrl) {
     return (
@@ -289,20 +301,11 @@ export function PetAvatar({
       preserveAspectRatio="xMidYMax slice"
       className={cn("h-full w-full", className)}
     >
-      <defs>
-        <linearGradient id={`g${uid}`} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#E4EDE7" />
-          <stop offset="1" stopColor="#F3ECDD" />
-        </linearGradient>
-        <radialGradient id={`r${uid}`} cx=".5" cy=".42" r=".55">
-          <stop offset="0" stopColor="#fff" stopOpacity=".85" />
-          <stop offset="1" stopColor="#fff" stopOpacity="0" />
-        </radialGradient>
-      </defs>
-      <rect width="200" height="200" fill={`url(#g${uid})`} />
-      <circle cx="30" cy="40" r="46" fill="#C9DACF" opacity=".5" />
-      <circle cx="176" cy="150" r="56" fill="#E9DFC9" opacity=".7" />
-      <rect width="200" height="200" fill={`url(#r${uid})`} />
+      <rect width="200" height="200" fill={tone[0]} />
+      <path
+        d="M100 12C142 4 186 30 188 74C190 112 170 138 178 168C152 208 66 212 32 178C6 150 12 108 20 78C28 40 60 18 100 12Z"
+        fill={tone[1]}
+      />
       <g transform="translate(0 14)">
         {/* corps */}
         <path

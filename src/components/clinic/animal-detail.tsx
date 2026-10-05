@@ -27,6 +27,7 @@ import {
   Wheat,
 } from "lucide-react";
 import { repository } from "@/data/repository";
+import { CLINIC } from "@/data/seed";
 import type {
   AnimalDocument,
   AnimalRow,
@@ -572,9 +573,9 @@ function DocumentsTab({ row }: { row: AnimalRow }) {
           }
         >
           <div className="rounded-2xl border border-line bg-canvas p-6">
-            <p className="font-display text-xl">{`Clinique vétérinaire des Tilleuls`}</p>
+            <p className="font-display text-xl">{CLINIC.name}</p>
             <p className="text-xs text-ink-muted">
-              12 rue des Tilleuls · 44000 Nantes
+              {CLINIC.address} · {CLINIC.postalCode} {CLINIC.city}
             </p>
             <hr className="my-4 border-line" />
             <p className="text-sm">

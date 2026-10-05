@@ -12,7 +12,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        canvas: "#F6F6F2",
+        canvas: "#FBFBF8",
         surface: "#FFFFFF",
         line: "#E8E8E1",
         ink: {
@@ -22,22 +22,30 @@ const config: Config = {
           faint: "#98A19B",
         },
         sage: {
-          50: "#F3F7F4",
-          100: "#E4EDE7",
-          200: "#C9DACF",
-          300: "#A4BFAF",
-          400: "#7BA18B",
-          500: "#588469",
-          600: "#436C54",
-          700: "#325541",
-          800: "#294535",
-          900: "#1C3126",
+          50: "#F5F9EE",
+          100: "#E7F0D8",
+          200: "#D3E3B9",
+          300: "#B6CF92",
+          400: "#93B568",
+          500: "#729A48",
+          600: "#58803A",
+          700: "#436429",
+          800: "#334D21",
+          900: "#243817",
         },
+        /* Aplats pastel (charte « Veterinary care ») */
+        mint: "#DDE9C9",
+        butter: "#FBF2CB",
+        lilac: "#E4E3F6",
+        sky: { DEFAULT: "#BEDDF1", 50: "#EEF6FB", 100: "#DCEBF6", 600: "#3E7490" },
+        blush: "#F7D0D7",
+        sand: "#EADCCF",
+        sun: "#F2A649",
         cream: {
-          50: "#FDFBF7",
-          100: "#FAF6EE",
-          200: "#F3ECDD",
-          300: "#E9DFC9",
+          50: "#FFFEFB",
+          100: "#FCF7E4",
+          200: "#F8EFCB",
+          300: "#EEE2AE",
         },
         amber: {
           50: "#FBF5E8",
@@ -51,20 +59,15 @@ const config: Config = {
           600: "#B5473A",
           700: "#923A2F",
         },
-        sky: {
-          50: "#EFF5F8",
-          100: "#DCE9F0",
-          600: "#3E7490",
-        },
       },
       fontFamily: {
         sans: ["'Inter Variable'", "Inter", "system-ui", "sans-serif"],
-        display: ["'Fraunces Variable'", "Georgia", "serif"],
+        display: ["'Outfit Variable'", "Outfit", "system-ui", "sans-serif"],
       },
       borderRadius: {
-        xl: "14px",
-        "2xl": "18px",
-        "3xl": "26px",
+        xl: "16px",
+        "2xl": "22px",
+        "3xl": "32px",
       },
       boxShadow: {
         soft: "0 1px 2px rgba(22,33,27,0.04), 0 0 0 1px rgba(22,33,27,0.02)",

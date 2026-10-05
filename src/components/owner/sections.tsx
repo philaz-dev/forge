@@ -54,7 +54,7 @@ export function OwnerTitle({
   return (
     <div className="mb-4 flex items-end justify-between gap-3">
       <div>
-        <h2 className="font-display text-[26px] font-medium leading-tight tracking-tight text-ink">
+        <h2 className="font-display text-[24px] font-light uppercase leading-tight tracking-wide text-ink">
           {children}
         </h2>
         {sub && <p className="mt-0.5 text-sm text-ink-muted">{sub}</p>}
@@ -91,7 +91,7 @@ export function UpcomingSection({
           À venir pour {pet.animal.name}
         </OwnerTitle>
       )}
-      <div className="rounded-3xl border border-cream-300/60 bg-white p-2 shadow-soft">
+      <div className="rounded-[32px] border border-cream-300/60 bg-white p-2 shadow-soft">
         <ol className="relative">
           {items.map((i, idx) => {
             const Icon = UP_ICON[i.kind];
@@ -151,10 +151,10 @@ export function WeightSection({ compact }: { compact?: boolean }) {
       <OwnerTitle sub="Courbe simple, pesée après pesée">
         Le poids {de(a.name)}
       </OwnerTitle>
-      <div className="rounded-3xl border border-cream-300/60 bg-white p-5 shadow-soft">
+      <div className="rounded-[32px] border border-cream-300/60 bg-white p-5 shadow-soft">
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
-            <p className="num font-display text-[48px] font-medium leading-none tracking-tight">
+            <p className="num font-display text-[48px] font-light leading-none tracking-tight">
               {kg(last.kg)}
             </p>
             <p className="mt-1 text-sm text-ink-muted">
@@ -223,6 +223,15 @@ const LIFE_ICON: Record<LifeItem["kind"], typeof Heart> = {
   last: Heart,
 };
 
+const TL_TONES = [
+  "bg-mint",
+  "bg-butter",
+  "bg-lilac",
+  "bg-sky/60",
+  "bg-blush/60",
+  "bg-sand/70",
+];
+
 export function LifeTimeline() {
   const { pet } = useOwner();
   const items = lifeTimeline(pet.animal);
@@ -243,16 +252,21 @@ export function LifeTimeline() {
           >
             <span
               className={cn(
-                "z-10 mt-3 grid h-[54px] w-[54px] shrink-0 place-items-center rounded-full border-4 border-cream-50",
+                "z-10 mt-3 grid h-[54px] w-[54px] shrink-0 place-items-center rounded-full border-4 border-white",
                 last
-                  ? "bg-sage-700 text-white shadow-lift"
-                  : "bg-white text-sage-700 shadow-soft",
+                  ? "bg-sun text-white shadow-lift"
+                  : "bg-white text-sage-700 shadow-soft ring-1 ring-black/5",
               )}
             >
               <Icon size={20} />
             </span>
-            <div className="mb-1 flex-1 rounded-3xl border border-cream-300/60 bg-white px-5 py-4 shadow-soft">
-              <p className="num font-display text-[22px] font-medium leading-none text-sage-700">
+            <div
+              className={cn(
+                "mb-1 flex-1 rounded-[32px] px-5 py-4",
+                TL_TONES[idx % TL_TONES.length],
+              )}
+            >
+              <p className="num font-display text-[22px] font-light leading-none text-sage-700">
                 {i.year}
               </p>
               <p className="mt-1.5 text-[16px] font-semibold leading-tight">
@@ -333,7 +347,7 @@ export function ProductCard({
 }) {
   const p = pick.product;
   return (
-    <article className="flex w-[260px] shrink-0 snap-start flex-col overflow-hidden rounded-3xl border border-cream-300/60 bg-white shadow-soft transition hover:shadow-lift sm:w-auto">
+    <article className="flex w-[260px] shrink-0 snap-start flex-col overflow-hidden rounded-[32px] border border-cream-300/60 bg-white shadow-soft transition hover:shadow-lift sm:w-auto">
       <ProductImage product={p} className="h-36" />
       <div className="flex flex-1 flex-col p-4">
         <p className="inline-flex items-center gap-1 text-[11px] font-semibold uppercase tracking-wider text-sage-700">
@@ -410,9 +424,7 @@ export function ProductModal({
     >
       <ProductImage product={p} className="h-48 rounded-2xl" />
       <div className="mt-4 flex items-baseline justify-between">
-        <p className="num font-display text-3xl font-medium">
-          {euro2(p.price)}
-        </p>
+        <p className="num font-display text-3xl font-light">{euro2(p.price)}</p>
         <span className="rounded-full bg-sage-100 px-3 py-1 text-xs font-medium text-sage-800">
           Recommandé par votre clinique
         </span>

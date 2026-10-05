@@ -100,7 +100,7 @@ export function ContactModal({
           {channel === "sms" && `À : ${row.owner.phone}`}
           {channel === "app" &&
             (row.owner.hasApp
-              ? "Notification dans l'application Vita de la propriétaire"
+              ? "Notification dans l'application SuperVet de la propriétaire"
               : "Ce propriétaire n'a pas encore l'application — la notification sera mise en attente.")}
         </p>
         <Field label="Message">

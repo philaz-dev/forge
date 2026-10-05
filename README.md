@@ -1,9 +1,9 @@
-# Vita — maquette haute fidélité
+# SuperVet — maquette haute fidélité
 
 > Transformez les données de votre clinique en suivi personnalisé, fidélisation et
 > nouvelles opportunités de revenus — tout au long de la vie de l'animal.
 
-Vita est un **CRM de cycle de vie pour cliniques vétérinaires**, complément (et non
+SuperVet est un **CRM de cycle de vie pour cliniques vétérinaires**, complément (et non
 remplacement) d'un logiciel métier comme GMVet. Cette V1 est un démonstrateur
 navigable : 100 % front-end, données fictives, aucun envoi réel.
 
@@ -27,7 +27,7 @@ pnpm test     # moteur de recommandations, filtres, jeu de données
 5. **Campagnes → Bilan senior** — animaux concernés, canaux, aperçu personnalisé, « Envoyer à 18 propriétaires » (simulé).
 6. **Opportunités** — 7 catégories, potentiel et conversion (fictifs).
 7. **Espace propriétaire** (mobile first) — prendre un rendez-vous ou demander conseil :
-   la demande apparaît **en direct** dans les notifications du Dr Martin (🔔).
+   la demande apparaît **en direct** dans les notifications du Dr Vetter (🔔).
 8. **Paramètres → Importer mes données** — drag & drop GMVet simulé (bouton « fichier d'exemple »).
 
 `Réinitialiser la démo` (bas de la barre latérale) remet l'état à zéro.

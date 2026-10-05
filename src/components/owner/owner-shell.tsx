@@ -40,8 +40,8 @@ function Shell({ children }: { children: ReactNode }) {
     "exact" in n && n.exact ? pathname === n.href : pathname.startsWith(n.href);
 
   return (
-    <div className="min-h-dvh bg-cream-50 pb-24 md:pb-0">
-      <header className="sticky top-0 z-40 border-b border-cream-300/50 bg-cream-50/85 backdrop-blur-xl">
+    <div className="min-h-dvh bg-white pb-24 md:pb-0">
+      <header className="sticky top-0 z-40 border-b border-black/5 bg-white/85 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-4xl items-center gap-4 px-5">
           <BrandMark href="/proprietaire" />
           <nav className="ml-6 hidden items-center gap-1 md:flex">
@@ -111,7 +111,7 @@ function Shell({ children }: { children: ReactNode }) {
                 <span
                   className={cn(
                     "grid h-7 w-12 place-items-center rounded-full transition",
-                    isActive(n) && "bg-sage-100",
+                    isActive(n) && "bg-mint",
                   )}
                 >
                   <n.icon size={19} strokeWidth={isActive(n) ? 2.4 : 2} />

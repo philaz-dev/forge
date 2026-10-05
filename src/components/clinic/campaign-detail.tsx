@@ -22,6 +22,7 @@ import {
   renderTemplate,
 } from "@/data/campaigns";
 import { repository } from "@/data/repository";
+import { CLINIC } from "@/data/seed";
 import type { AnimalRow, Channel } from "@/domain/types";
 import { ageLabel, formatShort } from "@/lib/dates";
 import { n0 } from "@/lib/format";
@@ -58,7 +59,7 @@ function Preview({
       <div className="overflow-hidden rounded-2xl border border-line bg-white shadow-soft">
         <div className="border-b border-line bg-canvas/70 px-4 py-3 text-xs text-ink-muted">
           <p>
-            <span className="text-ink-faint">De :</span> Clinique des Tilleuls ·{" "}
+            <span className="text-ink-faint">De :</span> {CLINIC.name} ·{" "}
             <span className="text-ink-faint">À :</span> {row.owner.email}
           </p>
           <p className="mt-1 text-sm font-semibold text-ink">

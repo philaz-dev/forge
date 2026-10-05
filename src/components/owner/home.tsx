@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ArrowRight, CalendarDays } from "lucide-react";
 import { PetAvatar } from "@/components/shared/pet-avatar";
+import { Doodle, Sunburst } from "@/components/shared/doodles";
 import { ageLabel, formatDayMonth, formatWeekdayShort } from "@/lib/dates";
 import { de, kg, signedKg } from "@/lib/format";
 import { weightDelta } from "@/domain/engine/weight";
@@ -32,7 +33,7 @@ export function OwnerHome() {
       title: "Santé",
       main: health.label,
       sub: health.sub,
-      tone: health.ok ? "bg-sage-50" : "bg-cream-100",
+      tone: "bg-mint",
     },
     {
       href: "/proprietaire/sante#vaccins",
@@ -40,7 +41,7 @@ export function OwnerHome() {
       title: "Vaccins",
       main: vs.label,
       sub: `Prochain rappel le ${formatDayMonth(v.nextDue)}`,
-      tone: "bg-sky-50",
+      tone: "bg-sky/60",
     },
     {
       href: "/proprietaire/sante#poids",
@@ -48,7 +49,7 @@ export function OwnerHome() {
       title: "Poids",
       main: kg(a.weights[a.weights.length - 1]!.kg),
       sub: d12 ? `${signedKg(d12.delta)} sur 12 mois` : "Stable",
-      tone: "bg-cream-100",
+      tone: "bg-butter",
     },
     nextApt
       ? {
@@ -57,7 +58,7 @@ export function OwnerHome() {
           title: "Prochain rendez-vous",
           main: `${formatWeekdayShort(nextApt.date)} ${nextApt.time.replace(":", "h")}`,
           sub: `${nextApt.reason}${nextApt.status === "demande" ? " · en attente" : ""}`,
-          tone: "bg-sage-50",
+          tone: "bg-lilac",
         }
       : {
           onClick: () => openBooking(),
@@ -65,40 +66,47 @@ export function OwnerHome() {
           title: "Prochain rendez-vous",
           main: "Aucun prévu",
           sub: "Réserver un créneau",
-          tone: "bg-sage-50",
+          tone: "bg-lilac",
         },
   ] as const;
 
   return (
     <div className="space-y-10">
       <div className="animate-fade-up">
-        <h1 className="font-display text-[38px] font-medium leading-[1.05] tracking-tight sm:text-5xl">
+        <h1 className="font-display text-[38px] font-light leading-[1.05] tracking-tight sm:text-5xl">
           Bonjour {ownerFirstName}{" "}
           <span className="inline-block origin-[70%_70%] animate-float">
             👋
           </span>
         </h1>
-        <p className="mt-2 font-display text-[26px] font-normal italic text-sage-700 sm:text-3xl">
+        <p className="mt-2 font-display text-[26px] font-light italic text-sage-600 sm:text-3xl">
           Comment va {a.name} ?
         </p>
       </div>
 
-      <div className="relative animate-fade-up overflow-hidden rounded-[32px] shadow-lift [animation-delay:80ms]">
-        <div className="aspect-[5/4] sm:aspect-[16/9]">
-          <PetAvatar animal={a} variant="portrait" />
-        </div>
-        <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-end justify-between gap-3 bg-gradient-to-t from-ink/55 via-ink/15 to-transparent p-5 pt-16 text-white">
-          <div>
-            <p className="font-display text-3xl font-medium">{a.name}</p>
-            <p className="text-sm text-white/80">{a.breed}</p>
+      <div className="relative animate-fade-up [animation-delay:80ms]">
+        <Sunburst className="absolute -right-3 -top-5 z-10 h-16 w-16 animate-float" />
+        <Doodle
+          kind="loop"
+          className="absolute -left-2 -top-9 hidden h-14 w-24 text-lilac sm:block"
+        />
+        <div className="relative overflow-hidden rounded-[48px]">
+          <div className="aspect-[5/4] sm:aspect-[16/9]">
+            <PetAvatar animal={a} variant="portrait" />
           </div>
-          <div className="flex gap-2">
-            <span className="num rounded-full bg-white/90 px-4 py-1.5 text-sm font-semibold text-ink backdrop-blur">
-              {ageLabel(a.birthDate)}
-            </span>
-            <span className="num rounded-full bg-white/90 px-4 py-1.5 text-sm font-semibold text-ink backdrop-blur">
-              {kg(a.weights[a.weights.length - 1]!.kg)}
-            </span>
+          <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-end justify-between gap-3 bg-gradient-to-t from-ink/45 via-ink/10 to-transparent p-5 pt-16 text-white">
+            <div>
+              <p className="font-display text-3xl font-light">{a.name}</p>
+              <p className="text-sm text-white/80">{a.breed}</p>
+            </div>
+            <div className="flex gap-2">
+              <span className="num rounded-full bg-white/90 px-4 py-1.5 text-sm font-semibold text-ink backdrop-blur">
+                {ageLabel(a.birthDate)}
+              </span>
+              <span className="num rounded-full bg-white/90 px-4 py-1.5 text-sm font-semibold text-ink backdrop-blur">
+                {kg(a.weights[a.weights.length - 1]!.kg)}
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -126,7 +134,7 @@ export function OwnerHome() {
             </>
           );
           const cls = cn(
-            "group relative animate-fade-up rounded-[28px] border border-cream-300/50 p-4 text-left shadow-soft transition duration-200 hover:-translate-y-0.5 hover:shadow-lift sm:p-5",
+            "group relative animate-fade-up rounded-[32px] p-4 text-left shadow-soft transition duration-200 hover:-translate-y-0.5 hover:shadow-lift sm:p-5",
             c.tone,
           );
           const style = { animationDelay: `${140 + i * 60}ms` };
@@ -154,17 +162,17 @@ export function OwnerHome() {
       <section>
         <Link
           href="/proprietaire/parcours"
-          className="group flex items-center justify-between gap-4 rounded-[28px] bg-sage-700 p-6 text-white shadow-lift transition hover:bg-sage-800"
+          className="group flex items-center justify-between gap-4 rounded-[36px] bg-lilac p-6 text-ink transition hover:-translate-y-0.5 hover:shadow-lift"
         >
           <div>
-            <p className="text-sm text-white/70">
+            <p className="text-sm text-ink-muted">
               Depuis {ageLabel(a.birthDate)}
             </p>
-            <p className="mt-1 font-display text-2xl font-medium">
+            <p className="mt-1 font-display text-2xl font-light">
               Revivre la vie {de(a.name)}
             </p>
           </div>
-          <span className="grid h-11 w-11 place-items-center rounded-full bg-white/15 transition group-hover:translate-x-1">
+          <span className="grid h-11 w-11 place-items-center rounded-full bg-white transition group-hover:translate-x-1">
             <CalendarDays size={20} />
           </span>
         </Link>

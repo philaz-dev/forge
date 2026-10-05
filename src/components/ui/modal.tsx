@@ -111,7 +111,7 @@ export function Modal({
             <h2
               className={cn(
                 "text-lg font-semibold tracking-tight text-ink",
-                warm && "font-display text-2xl font-medium",
+                warm && "font-display text-2xl font-light",
               )}
             >
               {title}

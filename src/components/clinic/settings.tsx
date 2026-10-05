@@ -4,7 +4,7 @@ import { useState } from "react";
 import {
   Building2,
   Check,
-  Clock,
+  MapPin,
   Database,
   CreditCard,
   CalendarCheck,
@@ -128,7 +128,7 @@ export function SettingsPage() {
             Importer mes données
           </h2>
           <p className="mt-0.5 text-sm text-ink-muted">
-            Vita complète GMVet : exportez vos fiches depuis votre logiciel
+            SuperVet complète GMVet : exportez vos fiches depuis votre logiciel
             métier et déposez-les ici.
           </p>
         </div>
@@ -149,7 +149,7 @@ export function SettingsPage() {
               <div>
                 <p className="font-semibold">{CLINIC.name}</p>
                 <p className="text-[13px] text-ink-muted">
-                  12 rue des Tilleuls · 44000 {CLINIC.city}
+                  {CLINIC.address} · {CLINIC.postalCode} {CLINIC.city}
                 </p>
               </div>
             </div>
@@ -161,7 +161,7 @@ export function SettingsPage() {
               ))}
             </div>
             <p className="flex items-center gap-1.5 text-[13px] text-ink-muted">
-              <Clock size={14} /> Lun–Ven 8h30–19h · Sam 9h–12h30
+              <MapPin size={14} /> {CLINIC.city} · horaires à renseigner
             </p>
           </div>
         </Card>

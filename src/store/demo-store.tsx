@@ -50,7 +50,7 @@ const SEED_STATE: DemoState = {
       reason: "Rappel de vaccination",
       date: "2026-12-05",
       time: "10:30",
-      vet: "Dr Martin",
+      vet: "Dr Vetter",
       status: "confirme",
       source: "clinique",
     },
