@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/inter";
-import "@fontsource-variable/fraunces";
+import "@fontsource-variable/outfit";
 import "./globals.css";
 import { DemoProvider } from "@/store/demo-store";
 import { ToastProvider } from "@/components/ui/toast";
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#F6F6F2",
+  themeColor: "#FBFBF8",
   width: "device-width",
   initialScale: 1,
 };

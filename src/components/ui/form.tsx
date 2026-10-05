@@ -99,18 +99,14 @@ export function Chip({
       className={cn(
         "inline-flex h-8 items-center gap-1.5 whitespace-nowrap rounded-full border px-3 text-[13px] font-medium transition-all",
         active
-          ? "border-sage-700 bg-sage-700 text-white shadow-soft"
+          ? "border-sage-400 bg-mint text-sage-900 shadow-soft"
           : "border-line bg-white text-ink-soft hover:border-sage-300 hover:bg-sage-50",
       )}
     >
       {icon}
       {children}
       {count !== undefined && (
-        <span
-          className={cn("text-xs", active ? "text-white/70" : "text-ink-faint")}
-        >
-          {count}
-        </span>
+        <span className={cn("text-xs", "text-ink-faint")}>{count}</span>
       )}
     </button>
   );

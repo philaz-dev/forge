@@ -26,7 +26,7 @@ export function BrandMark({
       </span>
       <span
         className={cn(
-          "font-display text-[22px] font-medium lowercase leading-none tracking-tight",
+          "font-display text-[22px] font-light lowercase leading-none tracking-tight",
           tone === "dark" ? "text-ink" : "text-white",
         )}
       >

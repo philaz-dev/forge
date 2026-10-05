@@ -47,7 +47,7 @@ export function HealthPage() {
   return (
     <div className="space-y-10">
       <div>
-        <h1 className="font-display text-4xl font-medium tracking-tight">
+        <h1 className="font-display text-4xl font-light tracking-tight">
           Santé {de(a.name)}
         </h1>
         <p className="mt-2 text-ink-muted">
@@ -55,7 +55,7 @@ export function HealthPage() {
         </p>
       </div>
 
-      <div className="flex items-start gap-4 rounded-[28px] border border-cream-300/50 bg-sage-50 p-5">
+      <div className="flex items-start gap-4 rounded-[32px] bg-mint p-5">
         <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-white text-2xl shadow-soft">
           ❤️
         </span>
@@ -185,7 +185,7 @@ export function JourneyPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="font-display text-4xl font-medium tracking-tight">
+        <h1 className="font-display text-4xl font-light tracking-tight">
           La vie {de(pet.animal.name)}
         </h1>
         <p className="mt-2 max-w-md text-ink-muted">
@@ -208,7 +208,7 @@ export function RecommendationsPage() {
   return (
     <div className="space-y-10">
       <div>
-        <h1 className="font-display text-4xl font-medium tracking-tight">
+        <h1 className="font-display text-4xl font-light tracking-tight">
           Recommandé pour {pet.animal.name}
         </h1>
         <p className="mt-2 max-w-md text-ink-muted">
@@ -260,7 +260,7 @@ export function AppointmentsPage() {
     <div className="space-y-10">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h1 className="font-display text-4xl font-medium tracking-tight">
+          <h1 className="font-display text-4xl font-light tracking-tight">
             Rendez-vous
           </h1>
           <p className="mt-2 text-ink-muted">

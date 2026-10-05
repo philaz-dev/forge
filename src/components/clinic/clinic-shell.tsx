@@ -51,9 +51,9 @@ function NavList({ onNavigate }: { onNavigate?: () => void }) {
             onClick={onNavigate}
             aria-current={active ? "page" : undefined}
             className={cn(
-              "group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition",
+              "group flex items-center gap-3 rounded-full px-4 py-2.5 text-sm font-medium transition",
               active
-                ? "bg-white text-ink shadow-soft ring-1 ring-line"
+                ? "bg-mint text-sage-900"
                 : "text-ink-muted hover:bg-black/[0.04] hover:text-ink",
             )}
           >
@@ -80,7 +80,7 @@ function SidebarFooter() {
     <div className="mt-auto space-y-2 pt-6">
       <Link
         href="/proprietaire"
-        className="flex items-center justify-between rounded-2xl bg-cream-100 px-4 py-3 text-sm font-medium text-ink ring-1 ring-cream-300/60 transition hover:bg-cream-200"
+        className="flex items-center justify-between rounded-[22px] bg-butter px-4 py-3 text-sm font-medium text-ink transition hover:bg-cream-200"
       >
         <span>
           Voir l’espace propriétaire

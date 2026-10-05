@@ -1,6 +1,6 @@
 import Link from "next/link";
 import {
-  ArrowRight,
+  ArrowUpRight,
   BellRing,
   HeartHandshake,
   LineChart,
@@ -9,149 +9,190 @@ import {
   Stethoscope,
 } from "lucide-react";
 import { BrandMark } from "@/components/shared/brand";
+import { Doodle, Sunburst } from "@/components/shared/doodles";
 import { PetAvatar } from "@/components/shared/pet-avatar";
 import { repository } from "@/data/repository";
+import { CLINIC } from "@/data/seed";
 
 const PILLARS = [
   {
     icon: BellRing,
-    title: "Des rappels intelligents",
+    title: "Rappels intelligents",
     text: "Vaccins, bilans seniors, antiparasitaires, suivis post-opératoires : chaque échéance est détectée et soumise au vétérinaire.",
+    tone: "bg-sand",
   },
   {
     icon: HeartHandshake,
-    title: "Une relation qui dure",
+    title: "Relation durable",
     text: "Les propriétaires suivent la santé de leur animal dans une application chaleureuse, et reviennent plus souvent.",
+    tone: "bg-lilac",
   },
   {
     icon: LineChart,
-    title: "Des revenus pertinents",
+    title: "Revenus pertinents",
     text: "Prévention, nutrition, dentaire : des services utiles à l'animal, proposés au bon moment, sans vente agressive.",
+    tone: "bg-lilac",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Jamais de diagnostic",
+    text: "Vita détecte des règles et des échéances, puis les soumet au vétérinaire, qui décide toujours.",
+    tone: "bg-lilac",
   },
 ];
 
 export default function Home() {
   const oslo = repository.getAnimal("a-oslo")!;
   const nala = repository.getAnimal("a-nala")!;
-  const marcel = repository.getAnimal("a-marcel")!;
   return (
-    <main className="relative overflow-hidden">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-[640px] bg-[radial-gradient(60%_60%_at_70%_0%,#E4EDE7_0%,transparent_70%),radial-gradient(40%_50%_at_0%_20%,#F3ECDD_0%,transparent_70%)]"
-      />
-      <header className="relative mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
+    <main className="relative overflow-hidden bg-white">
+      <header className="relative z-10 mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
         <BrandMark />
-        <span className="hidden rounded-full border border-line bg-white/70 px-3 py-1 text-xs font-medium text-ink-muted backdrop-blur sm:block">
-          Maquette de démonstration · données fictives
+        <nav className="hidden items-center gap-1 rounded-full bg-black/[0.04] p-1 text-[13px] font-medium text-ink-soft md:flex">
+          <span className="rounded-full bg-white px-4 py-1.5 shadow-soft">
+            Accueil
+          </span>
+          <Link
+            href="/clinique"
+            className="rounded-full px-4 py-1.5 transition hover:bg-white/70"
+          >
+            Espace vétérinaire
+          </Link>
+          <Link
+            href="/proprietaire"
+            className="rounded-full px-4 py-1.5 transition hover:bg-white/70"
+          >
+            Espace propriétaire
+          </Link>
+        </nav>
+        <span className="rounded-full bg-sky px-4 py-1.5 text-xs font-medium text-ink">
+          Démo · données fictives
         </span>
       </header>
 
-      <section className="relative mx-auto max-w-6xl px-6 pb-10 pt-10 sm:pt-16">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
-          <div className="animate-fade-up">
-            <p className="mb-5 inline-flex items-center gap-2 rounded-full bg-sage-100 px-3 py-1 text-xs font-medium text-sage-800">
-              <span className="h-1.5 w-1.5 rounded-full bg-sage-600" />
-              Le complément intelligent de votre logiciel métier
+      <section className="relative mx-auto max-w-6xl px-6 pb-10 pt-6 sm:pt-12">
+        <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="relative animate-fade-up">
+            <p className="mb-5 text-sm font-medium uppercase tracking-[0.18em] text-sage-700">
+              {CLINIC.name} · {CLINIC.city}
             </p>
-            <h1 className="font-display text-[34px] font-medium leading-[1.1] tracking-tight text-ink sm:text-[46px]">
+            <h1 className="font-display text-[38px] font-light leading-[1.12] tracking-tight text-ink sm:text-[54px]">
               Transformez les données de votre clinique en{" "}
-              <em className="not-italic text-sage-700">suivi personnalisé</em>,
-              fidélisation et nouvelles opportunités de revenus
+              <span className="rounded-2xl bg-mint px-2 py-0.5">
+                suivi personnalisé
+              </span>
+              , fidélisation et nouvelles opportunités de revenus
               <span className="text-ink-muted">
                 {" "}
                 — tout au long de la vie de l’animal.
               </span>
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-muted">
-              Vita s’appuie sur les données de GMVet (import CSV / Excel
-              aujourd’hui, API demain) pour bâtir un CRM fondé sur le cycle de
-              vie de chaque animal. Il ne remplace pas votre logiciel : il en
-              révèle la valeur.
+            <p className="mt-6 max-w-lg text-[17px] leading-relaxed text-ink-muted">
+              Vita s’appuie sur les données de GMVet pour bâtir un CRM fondé sur
+              le cycle de vie de chaque animal. Il ne remplace pas votre
+              logiciel : il en révèle la valeur.
             </p>
-
-            <div className="mt-9 grid gap-3 sm:grid-cols-2">
-              <Link
-                href="/clinique"
-                className="group relative overflow-hidden rounded-3xl bg-sage-700 p-6 text-white shadow-lift transition hover:bg-sage-800"
-              >
-                <Stethoscope className="mb-8 opacity-90" size={24} />
-                <p className="text-xl font-semibold tracking-tight">
-                  Espace vétérinaire
-                </p>
-                <p className="mt-1 text-sm text-white/70">
-                  Dashboard, CRM, campagnes, opportunités
-                </p>
-                <ArrowRight
-                  className="absolute right-5 top-5 transition group-hover:translate-x-1"
-                  size={20}
-                />
-              </Link>
-              <Link
-                href="/proprietaire"
-                className="group relative overflow-hidden rounded-3xl border border-line bg-cream-50 p-6 shadow-soft transition hover:shadow-lift"
-              >
-                <Smartphone className="mb-8 text-sage-700" size={24} />
-                <p className="text-xl font-semibold tracking-tight text-ink">
-                  Espace propriétaire
-                </p>
-                <p className="mt-1 text-sm text-ink-muted">
-                  L’application de Sophie et d’Oslo
-                </p>
-                <ArrowRight
-                  className="absolute right-5 top-5 text-sage-700 transition group-hover:translate-x-1"
-                  size={20}
-                />
-              </Link>
-            </div>
-            <p className="mt-5 flex items-center gap-2 text-[13px] text-ink-muted">
-              <ShieldCheck size={15} className="text-sage-600" />
-              Vita ne pose jamais de diagnostic : il détecte des règles et des
-              échéances, et les soumet au vétérinaire.
-            </p>
+            <Doodle
+              kind="arrow"
+              className="absolute -bottom-16 right-6 hidden h-20 w-28 text-lilac sm:block"
+            />
           </div>
 
-          <div className="relative mx-auto hidden h-[460px] w-full max-w-md animate-fade-up [animation-delay:120ms] lg:block">
-            <div className="absolute left-0 top-6 h-64 w-64 -rotate-6 animate-float overflow-hidden rounded-[36px] border border-white bg-white shadow-lift">
+          <div className="relative mx-auto h-[440px] w-full max-w-md animate-fade-up [animation-delay:120ms] sm:h-[520px]">
+            <div className="absolute inset-x-6 top-0 h-[400px] -rotate-2 overflow-hidden rounded-[44px] sm:h-[470px]">
               <PetAvatar animal={oslo} variant="portrait" />
-              <div className="absolute inset-x-3 bottom-3 rounded-2xl bg-white/90 p-3 backdrop-blur">
-                <p className="text-xs text-ink-muted">Oslo · 7 ans</p>
-                <p className="text-sm font-medium">Bilan senior recommandé</p>
-              </div>
             </div>
-            <div className="absolute right-0 top-32 h-56 w-56 rotate-6 animate-float overflow-hidden rounded-[36px] border border-white bg-white shadow-lift [animation-delay:1.2s]">
-              <PetAvatar animal={nala} variant="portrait" />
-              <div className="absolute inset-x-3 bottom-3 rounded-2xl bg-white/90 p-3 backdrop-blur">
-                <p className="text-xs text-ink-muted">Nala · 4 ans</p>
-                <p className="text-sm font-medium">
-                  Rappel vaccin dans 12 jours
-                </p>
+            <Sunburst className="absolute -left-2 top-4 h-20 w-20 animate-float" />
+            <div className="absolute -right-2 bottom-6 w-44 rotate-3 animate-float overflow-hidden rounded-[32px] bg-white p-2 shadow-lift [animation-delay:1.4s]">
+              <div className="aspect-square overflow-hidden rounded-[26px]">
+                <PetAvatar animal={nala} variant="portrait" />
               </div>
+              <p className="px-2 pb-1 pt-2 text-[12px] font-medium">
+                Nala · rappel vaccin dans 12 jours
+              </p>
             </div>
-            <div className="absolute bottom-0 left-16 h-44 w-44 -rotate-3 animate-float overflow-hidden rounded-[32px] border border-white bg-white shadow-lift [animation-delay:2.4s]">
-              <PetAvatar animal={marcel} variant="portrait" />
+            <div className="absolute bottom-0 left-0 rounded-3xl bg-white px-4 py-3 shadow-lift">
+              <p className="text-[11px] text-ink-muted">Oslo · 7 ans</p>
+              <p className="text-sm font-medium">Bilan senior recommandé</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="relative mx-auto max-w-6xl px-6 pb-24 pt-10">
-        <div className="grid gap-4 md:grid-cols-3">
+      <section className="relative mx-auto max-w-6xl px-6 pb-14">
+        <div className="grid gap-4 md:grid-cols-2">
+          <Link
+            href="/clinique"
+            className="group relative flex min-h-[210px] flex-col justify-between overflow-hidden rounded-[36px] bg-lilac p-7 transition hover:-translate-y-0.5 hover:shadow-lift"
+          >
+            <div className="flex items-start justify-between">
+              <Stethoscope size={26} className="text-ink-soft" />
+              <span className="grid h-11 w-11 place-items-center rounded-full bg-white ring-1 ring-black/5 transition group-hover:rotate-12">
+                <ArrowUpRight size={18} />
+              </span>
+            </div>
+            <div>
+              <p className="text-[13px] font-medium uppercase tracking-[0.16em] text-ink-muted">
+                Pour la clinique
+              </p>
+              <p className="mt-1 font-display text-[30px] font-light uppercase leading-tight tracking-wide">
+                Espace vétérinaire
+              </p>
+              <p className="mt-1 text-sm text-ink-muted">
+                Dashboard, CRM, campagnes, opportunités
+              </p>
+            </div>
+          </Link>
+          <Link
+            href="/proprietaire"
+            className="group relative flex min-h-[210px] flex-col justify-between overflow-hidden rounded-[36px] bg-butter p-7 transition hover:-translate-y-0.5 hover:shadow-lift"
+          >
+            <div className="flex items-start justify-between">
+              <Smartphone size={26} className="text-ink-soft" />
+              <span className="grid h-11 w-11 place-items-center rounded-full bg-white ring-1 ring-black/5 transition group-hover:rotate-12">
+                <ArrowUpRight size={18} />
+              </span>
+            </div>
+            <div>
+              <p className="text-[13px] font-medium uppercase tracking-[0.16em] text-ink-muted">
+                Pour les familles
+              </p>
+              <p className="mt-1 font-display text-[30px] font-light uppercase leading-tight tracking-wide">
+                Espace propriétaire
+              </p>
+              <p className="mt-1 text-sm text-ink-muted">
+                L’application de Sophie et d’Oslo
+              </p>
+            </div>
+            <Doodle
+              kind="squiggle"
+              className="absolute -bottom-2 right-8 h-14 w-24 text-sun/60"
+            />
+          </Link>
+        </div>
+      </section>
+
+      <section className="relative mx-auto max-w-6xl px-6 pb-24">
+        <h2 className="mb-6 max-w-2xl font-display text-3xl font-light leading-snug text-ink sm:text-4xl">
+          Du simple rappel au suivi de toute une vie, nous accompagnons chaque
+          animal.
+        </h2>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {PILLARS.map((p, i) => (
             <div
               key={p.title}
-              className="animate-fade-up rounded-3xl border border-line bg-white/80 p-6 shadow-soft backdrop-blur"
+              className={`flex min-h-[300px] animate-fade-up flex-col justify-between rounded-[32px] p-6 ${p.tone}`}
               style={{ animationDelay: `${200 + i * 90}ms` }}
             >
-              <span className="mb-5 grid h-10 w-10 place-items-center rounded-xl bg-sage-50 text-sage-700">
-                <p.icon size={19} />
-              </span>
-              <h3 className="text-[17px] font-semibold tracking-tight">
-                {p.title}
-              </h3>
-              <p className="mt-1.5 text-sm leading-relaxed text-ink-muted">
-                {p.text}
-              </p>
+              <p.icon size={28} strokeWidth={1.4} className="text-ink-soft" />
+              <div>
+                <h3 className="font-display text-[22px] font-light uppercase leading-tight tracking-wide">
+                  {p.title}
+                </h3>
+                <p className="mt-2 text-[13px] leading-relaxed text-ink-soft">
+                  {p.text}
+                </p>
+              </div>
             </div>
           ))}
         </div>
