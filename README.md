@@ -1,69 +1,67 @@
-# Forge
+# Vita — maquette haute fidélité
 
-**Forge is an operating system for creating and managing content brands.**
+> Transformez les données de votre clinique en suivi personnalisé, fidélisation et
+> nouvelles opportunités de revenus — tout au long de la vie de l'animal.
 
-Forge gives creators and teams a single place to conceive, launch, and run
-content brands — treating each brand as a first-class entity with its own
-identity, strategy, and operations. The long-term vision is a cohesive platform
-that turns the scattered, manual work of building a content brand into a
-guided, repeatable system.
+Vita est un **CRM de cycle de vie pour cliniques vétérinaires**, complément (et non
+remplacement) d'un logiciel métier comme GMVet. Cette V1 est un démonstrateur
+navigable : 100 % front-end, données fictives, aucun envoi réel.
 
-This repository is the Forge monorepo.
-
-## Stack
-
-- **Turborepo** + **pnpm** — monorepo tooling and workspace management
-- **Next.js** (App Router) + **React** + **TypeScript** (strict)
-- **Tailwind CSS** + **shadcn/ui** — styling and UI primitives
-- **Supabase** + **Drizzle ORM** — database (added in a later sprint)
-- **Zod** + **React Hook Form** + **TanStack Query** — data and forms
-- **ESLint** + **Prettier** + **Husky** — code quality
-- **Vitest** — testing
-
-## Structure
-
-```
-apps/
-  web/          Next.js App Router application
-
-packages/
-  kernel/       Framework-agnostic domain primitives
-  knowledge/    Knowledge domain — the business entities Forge knows
-  opportunity/  Opportunity scanner domain (mocked analysis)
-  brand/        Brand domain (in-memory BrandService, slug, status)
-  ui/           Shared UI components (shadcn/ui based)
-  persistence/  Drizzle ORM + Supabase (connection added later)
-  contracts/    Shared events, commands, and cross-domain interfaces
-  config/       Shared configuration (env validation, feature flags later)
-
-docs/           Project documentation, including Architecture Decision Records (docs/adr)
-```
-
-## Getting started
-
-Requires Node.js >= 20 and pnpm.
+## Lancer
 
 ```bash
-pnpm install     # install all workspace dependencies
-pnpm dev         # start the web app
+pnpm install
+pnpm dev      # http://localhost:3100
+pnpm test     # moteur de recommandations, filtres, jeu de données
 ```
 
-Then open http://localhost:3000.
+## Parcours de démonstration (≈ 8 min)
 
-## Scripts
+1. `/` — la promesse, deux entrées : espace vétérinaire / espace propriétaire.
+2. **Dashboard** (`/clinique`) — KPI, potentiel de CA, « À faire aujourd'hui »
+   (Voir le dossier · Contacter · Programmer un rappel · Ignorer, tous fonctionnels).
+3. **Animaux** — recherche (⌘K), filtres combinables, tri, pagination. Les KPI du dashboard
+   ouvrent la liste pré-filtrée.
+4. **Fiche Oslo** — bloc _Actions recommandées_, courbe de poids interactive
+   (+3,2 kg depuis janv. 2024 · « Évolution à surveiller »), vaccinations, historique, documents.
+5. **Campagnes → Bilan senior** — animaux concernés, canaux, aperçu personnalisé, « Envoyer à 18 propriétaires » (simulé).
+6. **Opportunités** — 7 catégories, potentiel et conversion (fictifs).
+7. **Espace propriétaire** (mobile first) — prendre un rendez-vous ou demander conseil :
+   la demande apparaît **en direct** dans les notifications du Dr Martin (🔔).
+8. **Paramètres → Importer mes données** — drag & drop GMVet simulé (bouton « fichier d'exemple »).
 
-Run from the repository root:
+`Réinitialiser la démo` (bas de la barre latérale) remet l'état à zéro.
 
-| Command          | Description                       |
-| ---------------- | --------------------------------- |
-| `pnpm dev`       | Start the web app in dev mode     |
-| `pnpm build`     | Build all packages and apps       |
-| `pnpm lint`      | Lint the whole workspace          |
-| `pnpm typecheck` | Type-check the whole workspace    |
-| `pnpm test`      | Run the test suites               |
-| `pnpm format`    | Format the codebase with Prettier |
+## Principe fondateur : jamais de diagnostic
 
-## Documentation
+`src/domain/engine/recommendations.ts` applique des **règles transparentes** (âge, échéances,
+dernière visite, évolution de pesées) et soumet le résultat au vétérinaire. Les libellés restent
+factuels (« n'a pas effectué », « évolution à surveiller »). Un test automatisé vérifie
+l'absence de vocabulaire diagnostique.
 
-See [`docs/`](./docs) for sprint notes, starting with
-[Sprint 001 — Foundation](./docs/sprint-001-foundation.md).
+## Architecture (prête à brancher)
+
+```
+src/
+  domain/            types + moteur pur (reco, poids, filtres, vie de l'animal) — testable
+  data/              seed fictif, build déterministe, repository (interface ClinicRepository)
+  store/             état de démo partagé clinique ↔ propriétaire (localStorage)
+  components/        ui/ (design system), clinic/, owner/, shared/
+  app/               /clinique/*  et  /proprietaire/*  (App Router)
+```
+
+| Brancher plus tard    | Où                                                                                                                         |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| Supabase / PostgreSQL | implémenter `ClinicRepository` (`data/repository.ts`) ; tables : owners, animals, weights, vaccinations, events, documents |
+| Import / API GMVet    | remplacer `data/build.ts` par un mapper CSV/XLSX → entités ; l'écran d'import est déjà en place                            |
+| Authentification      | middleware + rôles `vet` / `owner` ; `DEMO_OWNER_ID` devient la session                                                    |
+| Notifications         | `store.notify` / `sendCampaign` → passerelle e-mail, SMS, push                                                             |
+| Rendez-vous           | `store.book` → service d'agenda ; `BookingModal` consomme déjà des créneaux                                                |
+| Stripe                | `ProductModal` (aujourd'hui « Demander à la clinique », sans paiement)                                                     |
+
+## Notes
+
+- Date de référence fixe (`TODAY` dans `lib/dates.ts`) : données cohérentes d'une démo à l'autre.
+- Chiffres clinique (2 847 animaux, 18 450 €…) : valeurs fictives du cahier des charges ; la base
+  navigable (52 animaux, 32 propriétaires) en est un échantillon, signalé comme tel dans l'UI.
+- Photos : illustrations SVG générées ; `Animal.photoUrl` permet d'afficher de vraies photos.
