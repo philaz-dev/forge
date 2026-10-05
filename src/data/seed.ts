@@ -526,7 +526,7 @@ export const ANIMAL_SEEDS: AnimalSeed[] = [
     {
       visit: 60,
       vd: 300,
-      pd: 30,
+      pd: 14,
       trend: 0,
     },
   ),
@@ -693,7 +693,7 @@ export const ANIMAL_SEEDS: AnimalSeed[] = [
     {
       visit: 200,
       vd: 150,
-      pd: 60,
+      pd: 18,
       trend: 0,
     },
   ),

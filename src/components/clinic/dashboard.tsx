@@ -98,7 +98,7 @@ const KPIS = [
 ] as const;
 
 /** Fiches « vitrine » épinglées en tête de la liste du jour. */
-const PINNED = ["a-oslo", "a-nala", "a-marcel", "a-rio"];
+const PINNED = ["a-oslo", "a-nala", "a-marcel", "a-rio", "a-vodka", "a-gaia"];
 
 function useTodayItems() {
   return useMemo(() => {
