@@ -35,7 +35,8 @@ import { PetAvatar } from "@/components/shared/pet-avatar";
 
 const PAGE_SIZE = 15;
 
-type SortKey = "name" | "owner" | "age" | "weight" | "visit" | "due";
+type SortKey =
+  "default" | "name" | "owner" | "age" | "weight" | "visit" | "due";
 
 function fromParams(p: URLSearchParams): AnimalFilters {
   const age = p.get("age") as AgeBand | null;
@@ -109,7 +110,7 @@ export function AnimalList() {
     fromParams(params),
   );
   const [sort, setSort] = useState<{ key: SortKey; dir: 1 | -1 }>({
-    key: "name",
+    key: "default",
     dir: 1,
   });
   const [page, setPage] = useState(0);
@@ -149,6 +150,8 @@ export function AnimalList() {
   const rows = useMemo(() => {
     const out = applyFilters(all, filters);
     const get: Record<SortKey, (r: AnimalRow) => string | number> = {
+      // Par défaut : patients avec photo d'abord, puis ordre alphabétique.
+      default: (r) => `${r.animal.photoUrl ? 0 : 1}${r.animal.name}`,
       name: (r) => r.animal.name,
       owner: (r) => `${r.owner.lastName} ${r.owner.firstName}`,
       age: (r) => r.ageMonths,

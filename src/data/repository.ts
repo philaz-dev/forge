@@ -26,7 +26,11 @@ function createMockRepository(): ClinicRepository {
   const animals = buildAnimals(owners);
   const rows = animals
     .map((a) => toRow(a, ownerById.get(a.ownerId) as Owner))
-    .sort((x, y) => x.animal.name.localeCompare(y.animal.name, "fr"));
+    .sort(
+      (x, y) =>
+        Number(!!y.animal.photoUrl) - Number(!!x.animal.photoUrl) ||
+        x.animal.name.localeCompare(y.animal.name, "fr"),
+    );
   const rowById = new Map(rows.map((r) => [r.animal.id, r]));
 
   return {
