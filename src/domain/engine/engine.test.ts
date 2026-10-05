@@ -114,3 +114,11 @@ describe("filtres et campagnes", () => {
     expect(TOTAL_POTENTIAL).toBe(18450);
   });
 });
+
+describe("photos des patients", () => {
+  it("42 patients ont une photo, 10 gardent leur illustration", () => {
+    const animals = repository.listAnimals();
+    expect(animals.filter((a) => a.photoUrl)).toHaveLength(42);
+    expect(animals.filter((a) => !a.photoUrl)).toHaveLength(10);
+  });
+});

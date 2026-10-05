@@ -1,10 +1,12 @@
 /**
  * Photos réalistes (générées avec Higgsfield) pour les fiches « vitrine ».
- * Les autres animaux gardent leur illustration. Clé : id de l'animal.
+ * Les autres patients réutilisent la photo de l'animal le plus ressemblant
+ * (même race ou même robe) ; seuls 10 patients gardent leur illustration.
+ * Clé : id de l'animal.
  * Quand les vraies photos arriveront (import GMVet / upload), il suffira
  * de renseigner `Animal.photoUrl`.
  */
-export const PET_PHOTOS: Record<string, string> = {
+const OWN_PHOTOS: Record<string, string> = {
   "a-vodka": "/photos/vodka.webp", // Berger Belge Malinois
   "a-gaia": "/photos/gaia.webp", // Berger Australien
   // Portraits générés avec Higgsfield (hébergés en externe)
@@ -24,4 +26,57 @@ export const PET_PHOTOS: Record<string, string> = {
     "https://d8j0ntlcm91z4.cloudfront.net/user_3BcSQZTgtSVkqbmllbr5SXH3JIg/hf_20261005_100504_ad3d18e3-c357-4bbb-a6d9-2a0f39e11686.png",
   "a-maya":
     "https://d8j0ntlcm91z4.cloudfront.net/user_3BcSQZTgtSVkqbmllbr5SXH3JIg/hf_20261005_100507_f2fad4fc-6d6d-4c5f-a343-403bfaf453a3.png",
+};
+
+/**
+ * Patients sans portrait propre : ils réutilisent la photo d'un animal de la
+ * même race ou de robe proche. Les 10 patients absents de cette table et de
+ * `OWN_PHOTOS` conservent leur illustration : Pixel, Sally, Doudou, Pistache,
+ * Nougat, Mia, Choupette, Zéphyr, Biscotte et Ruby.
+ */
+const SHARED_PHOTOS: Record<string, string> = {
+  // chiens
+  "a-ulysse": "a-oslo",
+  "a-joy": "a-oslo",
+  "a-cooper": "a-oslo",
+  "a-bella": "a-rio",
+  "a-oscar": "a-rio",
+  "a-leo": "a-rio",
+  "a-noisette": "a-rio",
+  "a-max": "a-balto",
+  "a-sirius": "a-balto",
+  "a-tyson": "a-marcel",
+  "a-elsa": "a-marcel",
+  "a-rocky": "a-marcel",
+  "a-fanny": "a-marcel",
+  "a-atlas": "a-maya",
+  // chats
+  "a-simba": "a-nala",
+  "a-cleo": "a-nala",
+  "a-garfield": "a-nala",
+  "a-chacha": "a-nala",
+  "a-ulrich": "a-nala",
+  "a-kiwi": "a-nala",
+  "a-opale": "a-nala",
+  "a-biscuit": "a-nala",
+  "a-luna": "a-mochi",
+  "a-tigrou": "a-mochi",
+  "a-plume": "a-mochi",
+  "a-moustache": "a-mochi",
+  "a-mimine": "a-mochi",
+  "a-oreo": "a-mochi",
+  "a-neige": "a-mochi",
+  "a-poppy": "a-mochi",
+  "a-tom": "a-mochi",
+  "a-salem": "a-felix",
+};
+
+export const PET_PHOTOS: Record<string, string> = {
+  ...OWN_PHOTOS,
+  ...Object.fromEntries(
+    Object.entries(SHARED_PHOTOS).flatMap(([id, from]) => {
+      const url = OWN_PHOTOS[from];
+      return url ? [[id, url]] : [];
+    }),
+  ),
 };
