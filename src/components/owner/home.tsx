@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { ArrowRight, CalendarDays } from "lucide-react";
 import { PetAvatar } from "@/components/shared/pet-avatar";
-import { Doodle, Sunburst } from "@/components/shared/doodles";
+import { Doodle } from "@/components/shared/doodles";
 import { ageLabel, formatDayMonth, formatWeekdayShort } from "@/lib/dates";
 import { de, kg, signedKg } from "@/lib/format";
 import { weightDelta } from "@/domain/engine/weight";
@@ -41,7 +41,7 @@ export function OwnerHome() {
       title: "Vaccins",
       main: vs.label,
       sub: `Prochain rappel le ${formatDayMonth(v.nextDue)}`,
-      tone: "bg-sky/60",
+      tone: "bg-mint",
     },
     {
       href: "/proprietaire/sante#poids",
@@ -49,7 +49,7 @@ export function OwnerHome() {
       title: "Poids",
       main: kg(a.weights[a.weights.length - 1]!.kg),
       sub: d12 ? `${signedKg(d12.delta)} sur 12 mois` : "Stable",
-      tone: "bg-butter",
+      tone: "bg-sand",
     },
     nextApt
       ? {
@@ -58,7 +58,7 @@ export function OwnerHome() {
           title: "Prochain rendez-vous",
           main: `${formatWeekdayShort(nextApt.date)} ${nextApt.time.replace(":", "h")}`,
           sub: `${nextApt.reason}${nextApt.status === "demande" ? " · en attente" : ""}`,
-          tone: "bg-lilac",
+          tone: "bg-sand",
         }
       : {
           onClick: () => openBooking(),
@@ -66,7 +66,7 @@ export function OwnerHome() {
           title: "Prochain rendez-vous",
           main: "Aucun prévu",
           sub: "Réserver un créneau",
-          tone: "bg-lilac",
+          tone: "bg-sand",
         },
   ] as const;
 
@@ -85,10 +85,9 @@ export function OwnerHome() {
       </div>
 
       <div className="relative animate-fade-up [animation-delay:80ms]">
-        <Sunburst className="absolute -right-3 -top-5 z-10 h-16 w-16 animate-float" />
         <Doodle
           kind="loop"
-          className="absolute -left-2 -top-9 hidden h-14 w-24 text-lilac sm:block"
+          className="absolute -left-2 -top-9 hidden h-14 w-24 text-sage-300 sm:block"
         />
         <div className="relative overflow-hidden rounded-[48px]">
           <div className="aspect-[5/4] sm:aspect-[16/9]">
@@ -162,7 +161,7 @@ export function OwnerHome() {
       <section>
         <Link
           href="/proprietaire/parcours"
-          className="group flex items-center justify-between gap-4 rounded-[36px] bg-lilac p-6 text-ink transition hover:-translate-y-0.5 hover:shadow-lift"
+          className="group flex items-center justify-between gap-4 rounded-[36px] bg-sand p-6 text-ink transition hover:-translate-y-0.5 hover:shadow-lift"
         >
           <div>
             <p className="text-sm text-ink-muted">

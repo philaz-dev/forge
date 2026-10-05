@@ -34,17 +34,8 @@ import { useDemo } from "@/store/demo-store";
 import { RecActionBar } from "./rec-actions";
 import { ReturnRateChart } from "./charts";
 
-/** Aplats pastel de la charte, un par carte. */
-const KPI_TONES = [
-  "bg-mint",
-  "bg-sky/70",
-  "bg-butter",
-  "bg-lilac",
-  "bg-blush/70",
-  "bg-sand/80",
-  "bg-mint",
-  "bg-sky/70",
-];
+/** Deux aplats seulement : sauge clair et sable. */
+const KPI_TONES = ["bg-mint", "bg-sand"];
 
 const KPIS = [
   {
@@ -238,7 +229,7 @@ function TodayList() {
 function PotentialCard() {
   const max = Math.max(...OPPORTUNITIES.map((o) => o.potential));
   return (
-    <Card className="relative overflow-hidden rounded-[32px] border-transparent bg-butter lg:col-span-2">
+    <Card className="relative overflow-hidden rounded-[32px] border-transparent bg-sand lg:col-span-2">
       <div
         aria-hidden
         className="pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full bg-white/60 blur-3xl"
@@ -291,7 +282,7 @@ function PotentialCard() {
 
 function ReturnCard() {
   return (
-    <Card className="flex flex-col rounded-[32px] border-transparent bg-lilac">
+    <Card className="flex flex-col rounded-[32px] border-transparent bg-sand">
       <CardHeader
         title="Taux de retour en clinique"
         subtitle="Animaux vus dans les 12 derniers mois"
@@ -389,7 +380,7 @@ export function Dashboard() {
             href={k.href}
             className={cn(
               "group animate-fade-up rounded-[26px] p-4 transition duration-200 hover:-translate-y-0.5 hover:shadow-lift sm:p-5",
-              KPI_TONES[i % KPI_TONES.length],
+              KPI_TONES[(i + Math.floor(i / 4)) % 2],
             )}
             style={{ animationDelay: `${i * 40}ms` }}
           >

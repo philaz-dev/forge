@@ -9,7 +9,7 @@ import {
   Stethoscope,
 } from "lucide-react";
 import { BrandMark } from "@/components/shared/brand";
-import { Doodle, Sunburst } from "@/components/shared/doodles";
+import { Doodle } from "@/components/shared/doodles";
 import { PetAvatar } from "@/components/shared/pet-avatar";
 import { repository } from "@/data/repository";
 import { CLINIC } from "@/data/seed";
@@ -25,19 +25,19 @@ const PILLARS = [
     icon: HeartHandshake,
     title: "Relation durable",
     text: "Les propriétaires suivent la santé de leur animal dans une application chaleureuse, et reviennent plus souvent.",
-    tone: "bg-lilac",
+    tone: "bg-sand",
   },
   {
     icon: LineChart,
     title: "Revenus pertinents",
     text: "Prévention, nutrition, dentaire : des services utiles à l'animal, proposés au bon moment, sans vente agressive.",
-    tone: "bg-lilac",
+    tone: "bg-sand",
   },
   {
     icon: ShieldCheck,
     title: "Jamais de diagnostic",
     text: "SuperVet détecte des règles et des échéances, puis les soumet au vétérinaire, qui décide toujours.",
-    tone: "bg-lilac",
+    tone: "bg-sand",
   },
 ];
 
@@ -65,7 +65,7 @@ export default function Home() {
             Espace propriétaire
           </Link>
         </nav>
-        <span className="rounded-full bg-sky px-4 py-1.5 text-xs font-medium text-ink">
+        <span className="rounded-full bg-mint px-4 py-1.5 text-xs font-medium text-ink">
           Démo · données fictives
         </span>
       </header>
@@ -94,7 +94,7 @@ export default function Home() {
             </p>
             <Doodle
               kind="arrow"
-              className="absolute -bottom-16 right-6 hidden h-20 w-28 text-lilac sm:block"
+              className="absolute -bottom-16 right-6 hidden h-20 w-28 text-sage-300 sm:block"
             />
           </div>
 
@@ -102,7 +102,6 @@ export default function Home() {
             <div className="absolute inset-x-6 top-0 h-[400px] -rotate-2 overflow-hidden rounded-[44px] sm:h-[470px]">
               <PetAvatar animal={oslo} variant="portrait" />
             </div>
-            <Sunburst className="absolute -left-2 top-4 h-20 w-20 animate-float" />
             <div className="absolute -right-2 bottom-6 w-44 rotate-3 animate-float overflow-hidden rounded-[32px] bg-white p-2 shadow-lift [animation-delay:1.4s]">
               <div className="aspect-square overflow-hidden rounded-[26px]">
                 <PetAvatar animal={nala} variant="portrait" />
@@ -123,7 +122,7 @@ export default function Home() {
         <div className="grid gap-4 md:grid-cols-2">
           <Link
             href="/clinique"
-            className="group relative flex min-h-[210px] flex-col justify-between overflow-hidden rounded-[36px] bg-lilac p-7 transition hover:-translate-y-0.5 hover:shadow-lift"
+            className="group relative flex min-h-[210px] flex-col justify-between overflow-hidden rounded-[36px] bg-sand p-7 transition hover:-translate-y-0.5 hover:shadow-lift"
           >
             <div className="flex items-start justify-between">
               <Stethoscope size={26} className="text-ink-soft" />
@@ -145,7 +144,7 @@ export default function Home() {
           </Link>
           <Link
             href="/proprietaire"
-            className="group relative flex min-h-[210px] flex-col justify-between overflow-hidden rounded-[36px] bg-butter p-7 transition hover:-translate-y-0.5 hover:shadow-lift"
+            className="group relative flex min-h-[210px] flex-col justify-between overflow-hidden rounded-[36px] bg-sand p-7 transition hover:-translate-y-0.5 hover:shadow-lift"
           >
             <div className="flex items-start justify-between">
               <Smartphone size={26} className="text-ink-soft" />
@@ -166,7 +165,7 @@ export default function Home() {
             </div>
             <Doodle
               kind="squiggle"
-              className="absolute -bottom-2 right-8 h-14 w-24 text-sun/60"
+              className="absolute -bottom-2 right-8 h-14 w-24 text-sage-300"
             />
           </Link>
         </div>

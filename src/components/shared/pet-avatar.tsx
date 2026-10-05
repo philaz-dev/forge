@@ -46,11 +46,10 @@ const INK = "#2B2522";
 
 /** Paires [fond, forme organique] — pastels de la charte. */
 const TONES = [
-  ["#EAF2DD", "#BEDDF1"],
-  ["#FBF4D5", "#F7D0D7"],
-  ["#ECEBF9", "#DDE9C9"],
-  ["#EAF2DD", "#E4E3F6"],
-  ["#EEF6FB", "#FBF2CB"],
+  ["#F3F6EC", "#DDE7CC"],
+  ["#F7F3EC", "#E9E0D1"],
+  ["#F3F6EC", "#E9E0D1"],
+  ["#F7F3EC", "#DDE7CC"],
 ] as const;
 
 type Look = Pick<Animal, "species" | "coat" | "breed">;

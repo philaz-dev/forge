@@ -80,7 +80,7 @@ function SidebarFooter() {
     <div className="mt-auto space-y-2 pt-6">
       <Link
         href="/proprietaire"
-        className="flex items-center justify-between rounded-[22px] bg-butter px-4 py-3 text-sm font-medium text-ink transition hover:bg-cream-200"
+        className="flex items-center justify-between rounded-[22px] bg-sand px-4 py-3 text-sm font-medium text-ink transition hover:bg-cream-200"
       >
         <span>
           Voir l’espace propriétaire

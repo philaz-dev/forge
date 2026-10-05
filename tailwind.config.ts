@@ -33,14 +33,10 @@ const config: Config = {
           800: "#334D21",
           900: "#243817",
         },
-        /* Aplats pastel (charte « Veterinary care ») */
-        mint: "#DDE9C9",
-        butter: "#FBF2CB",
-        lilac: "#E4E3F6",
-        sky: { DEFAULT: "#BEDDF1", 50: "#EEF6FB", 100: "#DCEBF6", 600: "#3E7490" },
-        blush: "#F7D0D7",
-        sand: "#EADCCF",
-        sun: "#F2A649",
+        /* Palette sobre : vert sauge + sable chaud */
+        mint: "#E1EAD3",
+        sand: "#EFE9DF",
+        sky: { 50: "#EEF3F6", 100: "#DDE8EE", 600: "#3E7490" },
         cream: {
           50: "#FFFEFB",
           100: "#FCF7E4",
