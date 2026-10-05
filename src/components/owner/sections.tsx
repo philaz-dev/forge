@@ -223,14 +223,7 @@ const LIFE_ICON: Record<LifeItem["kind"], typeof Heart> = {
   last: Heart,
 };
 
-const TL_TONES = [
-  "bg-mint",
-  "bg-butter",
-  "bg-lilac",
-  "bg-sky/60",
-  "bg-blush/60",
-  "bg-sand/70",
-];
+const TL_TONES = ["bg-mint", "bg-sand"];
 
 export function LifeTimeline() {
   const { pet } = useOwner();
@@ -254,7 +247,7 @@ export function LifeTimeline() {
               className={cn(
                 "z-10 mt-3 grid h-[54px] w-[54px] shrink-0 place-items-center rounded-full border-4 border-white",
                 last
-                  ? "bg-sun text-white shadow-lift"
+                  ? "bg-sage-700 text-white shadow-lift"
                   : "bg-white text-sage-700 shadow-soft ring-1 ring-black/5",
               )}
             >
@@ -301,9 +294,9 @@ const PRODUCT_ICON: Record<Product["icon"], typeof Apple> = {
 };
 const TONE_BG: Record<Product["tone"], string> = {
   sage: "from-sage-100 to-sage-50 text-sage-700",
-  sand: "from-cream-200 to-cream-100 text-amber-700",
-  sky: "from-sky-100 to-sky-50 text-sky-600",
-  rose: "from-rose-100 to-rose-50 text-rose-600",
+  sand: "from-sand to-cream-100 text-sage-800",
+  sky: "from-mint to-sage-50 text-sage-700",
+  rose: "from-sand to-cream-100 text-sage-800",
 };
 
 export function ProductImage({
