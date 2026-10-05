@@ -645,9 +645,11 @@ export function AnimalDetail({ id }: { id: string }) {
         <div className="grid md:grid-cols-[300px_1fr]">
           <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[300px]">
             <PetAvatar animal={a} variant="portrait" />
-            <span className="absolute left-4 top-4 rounded-full bg-white/90 px-2.5 py-1 text-[11px] font-medium text-ink-muted backdrop-blur">
-              Illustration · photo à importer
-            </span>
+            {!a.photoUrl && (
+              <span className="absolute left-4 top-4 rounded-full bg-white/90 px-2.5 py-1 text-[11px] font-medium text-ink-muted backdrop-blur">
+                Illustration · photo à importer
+              </span>
+            )}
           </div>
           <div className="flex flex-col p-6 sm:p-8">
             <div className="flex flex-wrap items-start justify-between gap-3">
