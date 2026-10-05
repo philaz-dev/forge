@@ -6,7 +6,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "p-food-senior-large",
     name: "Croquettes Senior Grande Race",
-    brandLine: "Gamme Vita Nutrition",
+    brandLine: "Gamme SuperVet Nutrition",
     category: "Nutrition",
     price: 64.9,
     size: "Sac de 12 kg",
@@ -19,7 +19,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "p-food-adult",
     name: "Croquettes Adulte Équilibre",
-    brandLine: "Gamme Vita Nutrition",
+    brandLine: "Gamme SuperVet Nutrition",
     category: "Nutrition",
     price: 42.5,
     size: "Sac de 7 kg",
@@ -32,7 +32,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "p-food-cat-sterilised",
     name: "Croquettes Chat Stérilisé",
-    brandLine: "Gamme Vita Nutrition",
+    brandLine: "Gamme SuperVet Nutrition",
     category: "Nutrition",
     price: 31.9,
     size: "Sac de 4 kg",
@@ -45,7 +45,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "p-food-cat-senior",
     name: "Croquettes Chat Senior",
-    brandLine: "Gamme Vita Nutrition",
+    brandLine: "Gamme SuperVet Nutrition",
     category: "Nutrition",
     price: 34.5,
     size: "Sac de 3,5 kg",
@@ -58,7 +58,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "p-dental-chews",
     name: "Bâtonnets d'hygiène dentaire",
-    brandLine: "Soins Vita",
+    brandLine: "Soins SuperVet",
     category: "Dentaire",
     price: 14.5,
     size: "Boîte de 14",
@@ -71,7 +71,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "p-dental-gel",
     name: "Gel dentaire enzymatique",
-    brandLine: "Soins Vita",
+    brandLine: "Soins SuperVet",
     category: "Dentaire",
     price: 12.9,
     size: "Tube de 70 g",
@@ -84,7 +84,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "p-parasite-dog",
     name: "Protection antiparasitaire mensuelle",
-    brandLine: "Prévention Vita",
+    brandLine: "Prévention SuperVet",
     category: "Parasites",
     price: 29.9,
     size: "3 pipettes",
@@ -97,7 +97,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "p-parasite-cat",
     name: "Protection antiparasitaire chat",
-    brandLine: "Prévention Vita",
+    brandLine: "Prévention SuperVet",
     category: "Parasites",
     price: 24.9,
     size: "3 pipettes",
@@ -110,7 +110,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "p-joint",
     name: "Complément articulaire",
-    brandLine: "Soins Vita",
+    brandLine: "Soins SuperVet",
     category: "Senior",
     price: 27.5,
     size: "Cure de 60 jours",
@@ -123,7 +123,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "p-light",
     name: "Croquettes Équilibre Poids",
-    brandLine: "Gamme Vita Nutrition",
+    brandLine: "Gamme SuperVet Nutrition",
     category: "Nutrition",
     price: 46.0,
     size: "Sac de 7 kg",

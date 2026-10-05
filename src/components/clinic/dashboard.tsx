@@ -316,7 +316,7 @@ function RequestsCard() {
     <Card>
       <CardHeader
         title="Demandes des propriétaires"
-        subtitle="Reçues depuis l’application Vita"
+        subtitle="Reçues depuis l’application SuperVet"
         action={
           <Badge tone="sage">
             {state.notifications.filter((n) => !n.read).length} nouvelles
@@ -427,7 +427,7 @@ export function Dashboard() {
                   Un moteur de règles, pas un diagnostic
                 </p>
                 <p className="mt-1 text-[13px] leading-relaxed text-ink-muted">
-                  Vita détecte des échéances et des écarts à partir de vos
+                  SuperVet détecte des échéances et des écarts à partir de vos
                   données, puis vous les soumet. La décision médicale reste
                   toujours la vôtre.
                 </p>

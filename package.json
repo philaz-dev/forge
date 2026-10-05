@@ -1,8 +1,8 @@
 {
-  "name": "vita",
+  "name": "supervet",
   "version": "0.1.0",
   "private": true,
-  "description": "Vita — CRM de cycle de vie pour cliniques vétérinaires (maquette haute fidélité).",
+  "description": "SuperVet — CRM de cycle de vie pour cliniques vétérinaires (maquette haute fidélité).",
   "scripts": {
     "dev": "next dev -p 3100",
     "build": "next build",

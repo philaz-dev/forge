@@ -18,6 +18,7 @@ import type {
   Vaccination,
   WeightPoint,
 } from "@/domain/types";
+import { PET_PHOTOS } from "./photos";
 import { ANIMAL_SEEDS, CLINIC, OWNER_SEEDS, type AnimalSeed } from "./seed";
 
 /* ---------------------------- PRNG déterministe ---------------------------- */
@@ -483,6 +484,7 @@ export function buildAnimals(owners: Owner[]): Animal[] {
       birthDate: birth,
       ownerId: owner.id,
       coat: seed.coat,
+      photoUrl: PET_PHOTOS[`a-${seed.slug}`],
       size,
       microchip:
         `250 26${String(Math.floor(rng() * 1e10)).padStart(10, "0")}`.slice(

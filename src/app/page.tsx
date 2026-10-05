@@ -36,7 +36,7 @@ const PILLARS = [
   {
     icon: ShieldCheck,
     title: "Jamais de diagnostic",
-    text: "Vita détecte des règles et des échéances, puis les soumet au vétérinaire, qui décide toujours.",
+    text: "SuperVet détecte des règles et des échéances, puis les soumet au vétérinaire, qui décide toujours.",
     tone: "bg-lilac",
   },
 ];
@@ -88,8 +88,8 @@ export default function Home() {
               </span>
             </h1>
             <p className="mt-6 max-w-lg text-[17px] leading-relaxed text-ink-muted">
-              Vita s’appuie sur les données de GMVet pour bâtir un CRM fondé sur
-              le cycle de vie de chaque animal. Il ne remplace pas votre
+              SuperVet s’appuie sur les données de GMVet pour bâtir un CRM fondé
+              sur le cycle de vie de chaque animal. Il ne remplace pas votre
               logiciel : il en révèle la valeur.
             </p>
             <Doodle

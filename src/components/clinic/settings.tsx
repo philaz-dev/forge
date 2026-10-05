@@ -128,7 +128,7 @@ export function SettingsPage() {
             Importer mes données
           </h2>
           <p className="mt-0.5 text-sm text-ink-muted">
-            Vita complète GMVet : exportez vos fiches depuis votre logiciel
+            SuperVet complète GMVet : exportez vos fiches depuis votre logiciel
             métier et déposez-les ici.
           </p>
         </div>
