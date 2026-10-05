@@ -249,7 +249,7 @@ export function PetAvatar({
         alt={animal.name}
         className={cn(
           "object-cover",
-          variant === "avatar" && "rounded-full",
+          variant === "avatar" ? "shrink-0 rounded-full" : "h-full w-full",
           className,
         )}
         style={variant === "avatar" ? { width: size, height: size } : undefined}

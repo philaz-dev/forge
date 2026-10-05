@@ -5,5 +5,6 @@
  * de renseigner `Animal.photoUrl`.
  */
 export const PET_PHOTOS: Record<string, string> = {
-  // "a-oslo": "https://…",
+  "a-vodka": "/photos/vodka.webp", // Berger Belge Malinois
+  "a-gaia": "/photos/gaia.webp", // Berger Australien
 };
