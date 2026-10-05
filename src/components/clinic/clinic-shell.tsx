@@ -163,12 +163,12 @@ export function ClinicShell({ children }: { children: ReactNode }) {
               <NotificationBell />
               <div className="hidden items-center gap-2.5 border-l border-line pl-4 sm:flex">
                 <span className="grid h-9 w-9 place-items-center rounded-full bg-sage-700 text-xs font-semibold text-white">
-                  HM
+                  DV
                 </span>
                 <span className="leading-tight">
-                  <span className="block text-sm font-medium">Dr Martin</span>
+                  <span className="block text-sm font-medium">Dr Vetter</span>
                   <span className="block text-xs text-ink-muted">
-                    {CLINIC.name.replace("Clinique vétérinaire ", "")}
+                    {CLINIC.shortName}
                   </span>
                 </span>
               </div>

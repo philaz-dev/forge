@@ -348,7 +348,7 @@ export function Dashboard() {
             {formatWeekday(TODAY)}
           </p>
           <h1 className="mt-1 text-[34px] font-semibold leading-tight tracking-tight sm:text-[40px]">
-            Bonjour Dr Martin
+            Bonjour Dr Vetter
           </h1>
           <p className="mt-1 text-[15px] text-ink-muted">
             <span className="font-medium text-ink-soft">
